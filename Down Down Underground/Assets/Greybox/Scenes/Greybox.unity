@@ -1063,7 +1063,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.35
+  m_Radius: 0.09
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &677576441
 MonoBehaviour:
@@ -1078,6 +1078,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miningTimeDur: 0.4
+  miningTime: 0
+  targetTile: {fileID: 0}
 --- !u!1001 &792338243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1534,7 +1536,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 2.8070002, y: 13.799001, z: 0.689}
 --- !u!1001 &1252881516
 PrefabInstance:
@@ -2108,7 +2110,7 @@ Transform:
   - {fileID: 1763095646}
   - {fileID: 1442618568}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1643828569
 PrefabInstance:
@@ -2604,7 +2606,7 @@ Transform:
   m_Children:
   - {fileID: 677576439}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1873564069
 MonoBehaviour:
@@ -7439,7 +7441,7 @@ Transform:
   - {fileID: 319219653}
   - {fileID: 1736070787}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5589016018327958970
 PrefabInstance:

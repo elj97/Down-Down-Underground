@@ -6,8 +6,9 @@ public class Mine : MonoBehaviour
 {
 
     public float miningTimeDur = 0.4f; //How many seconds it takes to mine a block
-    float miningTime = 0f; //The timer for mining blocks
+    public float miningTime = 0f; //The timer for mining blocks
     bool mined = false;
+    public GameObject targetTile;
 
     private void Awake()
     {
@@ -31,12 +32,22 @@ public class Mine : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        print("Enter trigger");
         if (other.gameObject.CompareTag("Ground"))
         {
+            if (other.gameObject != targetTile)
+            {
+                miningTime = miningTimeDur;
+                targetTile = other.gameObject;
+            }
+
             if (mined == true)
             {
                 Destroy(other.gameObject);
+                targetTile = null;
             }
         }
+
+       
     }
 }
