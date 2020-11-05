@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public GameObject mineCircle;
-    public float mineCircleOffSet = 0.65f;
+    public float mineCircleOffset = 0.65f;
     public float speed;
     float horizontalMove = 0f;
     float verticalMove = 0f;
@@ -15,7 +15,12 @@ public class PlayerMovement : MonoBehaviour
     bool currentlyMovingHori = false;
 
     float direction = 0f; //The direction the player is facing/currently-moving, is determined by number (0 = right, 1 = down, 2 = left, 3 = up)
-    
+
+    // laser 
+    public GameObject laser;
+    public float laserOffset = 2f;
+
+
     public enum miningDirection
     {
         NONE,UP,DOWN,LEFT,RIGHT
@@ -89,16 +94,16 @@ public class PlayerMovement : MonoBehaviour
         //Moves minecircle depending on direction facing, depends on the minecircle off set
       /*  if (direction == 0f)
         {
-            mineCircle.transform.position = transform.position + new Vector3(mineCircleOffSet, 0f, 0f);
+            mineCircle.transform.position = transform.position + new Vector3(mineCircleOffset, 0f, 0f);
         } else if (direction == 1f)
         {
-            mineCircle.transform.position = transform.position + new Vector3(0f, -mineCircleOffSet, 0f);
+            mineCircle.transform.position = transform.position + new Vector3(0f, -mineCircleOffset, 0f);
         } else if (direction == 2f)
         {
-            mineCircle.transform.position = transform.position + new Vector3(-mineCircleOffSet, 0f, 0f);
+            mineCircle.transform.position = transform.position + new Vector3(-mineCircleOffset, 0f, 0f);
         } else if (direction == 3f)
         {
-            mineCircle.transform.position = transform.position + new Vector3(0f, mineCircleOffSet, 0f);
+            mineCircle.transform.position = transform.position + new Vector3(0f, mineCircleOffset, 0f);
         }*/
 
         switch (mDirection)
@@ -107,19 +112,31 @@ public class PlayerMovement : MonoBehaviour
                 break;
             case miningDirection.UP:
                 Debug.Log("UP");
-                mineCircle.transform.position = transform.position + new Vector3(0f, mineCircleOffSet, 0f);
+                mineCircle.transform.position = transform.position + new Vector3(0f, mineCircleOffset, 0f);
+                laser.transform.position = transform.position + new Vector3(0f, laserOffset, 0f);
+                Quaternion targetUP = Quaternion.Euler(0, 0, 90);
+                laser.transform.rotation = targetUP;
                 break;
             case miningDirection.DOWN:
                 Debug.Log("DOWN");
-                mineCircle.transform.position = transform.position + new Vector3(0f, -mineCircleOffSet, 0f);
+                mineCircle.transform.position = transform.position + new Vector3(0f, -mineCircleOffset, 0f);
+                laser.transform.position = transform.position + new Vector3(0f, -laserOffset, 0f);
+                Quaternion targetDOWN = Quaternion.Euler(0, 0, 90);
+                laser.transform.rotation = targetDOWN;
                 break;
             case miningDirection.LEFT:
                 Debug.Log("LEFT");
-                mineCircle.transform.position = transform.position + new Vector3(-mineCircleOffSet, 0f, 0f); //left
+                mineCircle.transform.position = transform.position + new Vector3(-mineCircleOffset, 0f, 0f); //left
+                laser.transform.position = transform.position + new Vector3(-laserOffset, 0f, 0f);
+                Quaternion targetLEFT = Quaternion.Euler(0, 0, 0);
+                laser.transform.rotation = targetLEFT;
                 break;
             case miningDirection.RIGHT:
                 Debug.Log("RIGHT");
-                mineCircle.transform.position = transform.position + new Vector3(mineCircleOffSet, 0f, 0f); //right
+                mineCircle.transform.position = transform.position + new Vector3(mineCircleOffset, 0f, 0f); //right
+                laser.transform.position = transform.position + new Vector3(laserOffset, 0f, 0f);
+                Quaternion targetRIGHT = Quaternion.Euler(0, 0, 0);
+                laser.transform.rotation = targetRIGHT;
                 break;
         }
 
