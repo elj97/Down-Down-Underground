@@ -10,10 +10,7 @@ public class Shoot : MonoBehaviour
     public float laserTime = 0f; //The timer
     private bool laserCancelled = false;
     
-    // time it takes to destroy enemy
-    private bool destroyEnemy;
-    public float enemyTimeDur = 1f; //How many seconds enemy hitbox
-    public float enemyTime = 0f; //The enemy timer
+   
 
     private void Awake()
     {
@@ -57,37 +54,8 @@ public class Shoot : MonoBehaviour
             laserCancelled = false;
         }
 
-        // time it takes to destroy enemy
-        if (enemyTime > 0)
-        {
-            enemyTime -= Time.deltaTime;
-        }
-        /*if (enemyTime < 0)
-        {
-            enemyTime = enemyTimeDur;
-        }*/
+       
     }
-    
-    // destroy when timer is up
-    private void OnTriggerStay(Collider other)
-    {
-        print("Enter enemy hitbox");
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            if (destroyEnemy == true)
-            {
-                Destroy(other.gameObject);
-            }
-        }
-    }
-
-    // reset the timer when new enemy enter
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            enemyTime = enemyTimeDur;
-        }
-    }
+   
 
 }

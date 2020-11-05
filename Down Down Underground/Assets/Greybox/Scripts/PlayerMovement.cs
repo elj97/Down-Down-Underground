@@ -144,7 +144,14 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log("currentlyMovingHori = " + currentlyMovingHori);
         //Debug.Log("currentlyMovingVert = " + currentlyMovingVert);
 
-    }
+        /*
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 2))
+            Debug.DrawLine(ray.origin, hit.point);
+        */
+
+    } // end of update
 
     private void FixedUpdate()
     {
@@ -157,5 +164,7 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position += transform.TransformDirection(Vector3.up) * Time.fixedDeltaTime * verticalMove;
         }
+
+        
     }
 }
