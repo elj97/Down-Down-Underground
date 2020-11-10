@@ -10,6 +10,8 @@ public class Mine : MonoBehaviour
     bool mined = false;
     public GameObject targetTile;
 
+    public ScanPath scanPath;
+
     private void Awake()
     {
         miningTime = miningTimeDur;
@@ -32,7 +34,7 @@ public class Mine : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        print("Enter trigger");
+        //print("Enter trigger");
         if (other.gameObject.CompareTag("Ground"))
         {
             if (other.gameObject != targetTile)
@@ -45,6 +47,7 @@ public class Mine : MonoBehaviour
             {
                 Destroy(other.gameObject);
                 targetTile = null;
+                scanPath.InitiateCoroutine();
             }
         }
 

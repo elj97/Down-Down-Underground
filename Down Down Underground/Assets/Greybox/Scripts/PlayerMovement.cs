@@ -16,8 +16,6 @@ namespace SAE
         bool currentlyMovingVert = false;
         bool currentlyMovingHori = false;
 
-        float direction = 0f; //The direction the player is facing/currently-moving, is determined by number (0 = right, 1 = down, 2 = left, 3 = up)
-
         public enum miningDirection
         {
             NONE, UP, DOWN, LEFT, RIGHT
