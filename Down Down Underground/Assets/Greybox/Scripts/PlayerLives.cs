@@ -20,6 +20,7 @@ public class PlayerLives : MonoBehaviour
         else if (life < 3)
         {
             Destroy(hearts[2].gameObject);
+            //Die();
         }
 
         if (Input.GetKeyDown(KeyCode.Q)) {
@@ -33,4 +34,8 @@ public class PlayerLives : MonoBehaviour
         life -= d;
         print("takedamage is being called");
     }
+
+    // somehow start the respawn script's respawner coroutine
+    //public void Die();
+     
 }
