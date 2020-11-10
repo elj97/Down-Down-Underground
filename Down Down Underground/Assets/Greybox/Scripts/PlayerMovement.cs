@@ -89,21 +89,6 @@ namespace SAE
                 }
             }
 
-            //Moves minecircle depending on direction facing, depends on the minecircle off set
-            /*  if (direction == 0f)
-              {
-                  mineCircle.transform.position = transform.position + new Vector3(mineCircleOffSet, 0f, 0f);
-              } else if (direction == 1f)
-              {
-                  mineCircle.transform.position = transform.position + new Vector3(0f, -mineCircleOffSet, 0f);
-              } else if (direction == 2f)
-              {
-                  mineCircle.transform.position = transform.position + new Vector3(-mineCircleOffSet, 0f, 0f);
-              } else if (direction == 3f)
-              {
-                  mineCircle.transform.position = transform.position + new Vector3(0f, mineCircleOffSet, 0f);
-              }*/
-
             switch (mDirection)
             {
                 case miningDirection.NONE:
@@ -125,10 +110,6 @@ namespace SAE
                     mineCircle.transform.position = transform.position + new Vector3(mineCircleOffSet, 0f, 0f); //right
                     break;
             }
-
-            ///Debug Lines for the current movement
-            //Debug.Log("currentlyMovingHori = " + currentlyMovingHori);
-            //Debug.Log("currentlyMovingVert = " + currentlyMovingVert);
 
         }
 

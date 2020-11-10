@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/SAEArcadeCabinet/Scenes/SAEArcadeCabinetInputTest.unity
     guid: 671be74c7f567644f9dd28e323a7731f
+  - enabled: 1
+    path: Assets/Enemies/Scenes/ArcadePlaytest.unity
+    guid: 8a2970b66f44903459edb3010a1f06db
   m_configObjects: {}
