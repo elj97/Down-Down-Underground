@@ -50,7 +50,10 @@ public class GenericEnemy : MonoBehaviour
                 followPlayer = true;
             }
         }
-        StartCoroutine("FollowPlayer", detectPlayerTime);
+        if (followPlayer == false)
+        {
+            StartCoroutine("FollowPlayer", detectPlayerTime);
+        }
         yield return null;
     }
 
@@ -128,7 +131,7 @@ public class GenericEnemy : MonoBehaviour
     //Drawing Ranges n Stuff
     void OnDrawGizmosSelected()
     {
-        // Draw a yellow sphere at the transform's position
+        // Draw a red sphere at the transform's position
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
