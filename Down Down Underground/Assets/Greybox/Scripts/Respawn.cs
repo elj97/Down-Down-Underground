@@ -7,6 +7,7 @@ public class Respawn : MonoBehaviour
     public GameObject Player;
     [SerializeField] private Transform Playermodel;
     [SerializeField] private Transform respawnPoint;
+    public float spawnDelay = 2f;
 
     /*  //script that works
     void OnTriggerEnter(Collider other)
@@ -16,17 +17,21 @@ public class Respawn : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Player.SetActive(false);
-        StartCoroutine("Respawner", 2f);   
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Player.SetActive(false);
+            StartCoroutine("Respawner", spawnDelay);
+        }
     }
 
     // here i want to get the player lives if last heart destroyed then die and start the respawner coroutine
 
-    IEnumerator Respawner(float spawnDelay)
+    IEnumerator Respawner(float Count)
     {
-        yield return new WaitForSeconds(spawnDelay);
+        yield return new WaitForSeconds(Count);
         Playermodel.transform.position = respawnPoint.transform.position;
         Player.SetActive(true);
+        yield return null;
     }
 
 
