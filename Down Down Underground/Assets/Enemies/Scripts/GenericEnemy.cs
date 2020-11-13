@@ -123,7 +123,7 @@ public class GenericEnemy : MonoBehaviour
     }
 
     //Death
-    void Death()
+    public void Death()
     {
         Destroy(this.gameObject);
     }
