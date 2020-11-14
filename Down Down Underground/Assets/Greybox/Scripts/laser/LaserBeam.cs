@@ -6,9 +6,9 @@ public class LaserBeam : MonoBehaviour
 {
     private LineRenderer lr;
 
-    //add delegate for target call to enemies
+    //add delegate for target to call enemies
 
-    private void Start()
+    private void Awake()
     {
         lr = GetComponent<LineRenderer>();
     }
