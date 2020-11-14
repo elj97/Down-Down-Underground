@@ -6,24 +6,27 @@ public class RangedEnemy : MonoBehaviour
 {
 
     [Header("Stats")]
-    public float rateOfFire;
-    public float projectileSpeed;
+    public float rateOfFire = 1f;
+    int amountProjectiles = 4;
+    float projectileRotation = 0f;
 
     [Header("Prefabs")]
     public GameObject projectile;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
     }
 
     void Shoot()
     {
-        
+        for(int i = 0; i < amountProjectiles; i++)
+        {
+            Instantiate(projectile, this.transform.position, Quaternion.Euler(0f, projectileRotation, 0f), this.transform);
+            projectileRotation += 90;
+        }
     }
 }
