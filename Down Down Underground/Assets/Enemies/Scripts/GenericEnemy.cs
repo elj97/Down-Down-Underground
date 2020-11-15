@@ -9,6 +9,7 @@ public class GenericEnemy : MonoBehaviour
     [Header("Enemy Stats")]
     public float health;
     public float moveSpeed;
+    public float currentMoveSpeed;
     public float detectionRange = 2f;
 
     //Enemy Factors
@@ -59,8 +60,9 @@ public class GenericEnemy : MonoBehaviour
 
     void Start()
     {
+        currentMoveSpeed = moveSpeed;
         patrolling = true;
-        aIPathScript.maxSpeed = moveSpeed;
+        //aIPathScript.maxSpeed = currentMoveSpeed;
 
         //Sets Tags for the Patrol Points
         patrolPoint1.tag = "PatrolPoint1";
@@ -76,6 +78,8 @@ public class GenericEnemy : MonoBehaviour
 
     void Update()
     {
+        aIPathScript.maxSpeed = currentMoveSpeed;
+
         if (patrolling == true)
         {
             if (atStartPoint == true)
@@ -127,13 +131,4 @@ public class GenericEnemy : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
-
-    //Drawing Ranges n Stuff
-    void OnDrawGizmosSelected()
-    {
-        // Draw a red sphere at the transform's position
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
-    }
-    
 }

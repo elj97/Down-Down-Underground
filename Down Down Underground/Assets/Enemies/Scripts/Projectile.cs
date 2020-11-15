@@ -4,20 +4,33 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-
-    public GameObject thisProjectile;
+    
     float projectileSpeed;
+    Vector3 direction;
+    float lifetime;
     
 
     void Start()
     {
-        //projectileSpeed = gameObject.GetComponentInParent<RangedEnemy>().projectileSpeed;
-        this.transform.parent = null;
+        projectileSpeed = this.GetComponentInParent<RangedEnemy>().projectileSpeed;
+        lifetime = this.GetComponentInParent<RangedEnemy>().projectileLifetime;
+        Destroy(this.gameObject, lifetime);
     }
-    
+
     void Update()
     {
-        this.thisProjectile.GetComponent<Rigidbody>().velocity = new Vector3(this.transform.rotation.eulerAngles.x, this.transform.rotation.eulerAngles.y, 0f) * projectileSpeed;
-
+        transform.position += transform.TransformDirection(Vector3.forward) * Time.fixedDeltaTime * projectileSpeed;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Destroy(this.gameObject);
+        } else if (other.CompareTag("Ground"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
 }

@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class DetectPlayer : MonoBehaviour
 {
-
-    public GenericEnemy thisEnemyScript;
     public GameObject followedPlayer;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            thisEnemyScript.playerInRange = true;
+            this.GetComponentInParent<GenericEnemy>().playerInRange = true;
             followedPlayer = other.gameObject;
         }
     }
