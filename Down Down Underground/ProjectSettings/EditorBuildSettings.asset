@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/SAEArcadeCabinet/Scenes/SAEArcadeCabinetInputTest.unity
     guid: 671be74c7f567644f9dd28e323a7731f
   - enabled: 1
-    path: Assets/Enemies/Scenes/ArcadePlaytest.unity
+    path: Assets/Temp Scenes/ArcadePlaytest.unity
     guid: 8a2970b66f44903459edb3010a1f06db
   m_configObjects: {}

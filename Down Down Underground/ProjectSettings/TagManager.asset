@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - PatrolPoint1
   - PatrolPoint2
+  - Pipe
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - RedPlayer
   - GreenPlayer
   - Rock
-  - 
+  - Pipe
   - 
   - 
   - 
