@@ -35,12 +35,12 @@ public class Cube : MonoBehaviour
 
     private void Update()
     {
-        Vector2 m = new Vector2(move.x, -move.y) * Time.deltaTime;
-        transform.Translate(m, Space.World);
+        Vector2 m = new Vector2(move.y, move.x) * Time.deltaTime;
+        transform.Translate(m, Space.Self);
 
         // made rotate.x/y negative if not turning the correct way
-        Vector2 r = new Vector2(-rotate.y, rotate.x) * 100f * Time.deltaTime;
-        transform.Rotate(r, Space.World);
+        Vector2 r = new Vector2(rotate.y, rotate.x) * 100f * Time.deltaTime;
+        transform.Rotate(r, Space.Self);
     }
 
     private void OnEnable()
