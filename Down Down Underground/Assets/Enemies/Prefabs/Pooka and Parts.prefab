@@ -57,7 +57,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1d7bb39c10cd34aa3cfd22aefc188f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisEnemyScript: {fileID: 172024484210803754}
   followedPlayer: {fileID: 0}
 --- !u!1 &172024483377964651
 GameObject:
@@ -201,7 +200,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 35132cd665df3ce448ca33a634235192, type: 2}
+  - {fileID: 2100000, guid: f4c71e15d14e037428025acbf5787c4f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -343,6 +342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   moveSpeed: 5
+  currentMoveSpeed: 0
   detectionRange: 4
   patrolling: 0
   patrolPoint1: {fileID: 172024484331195157}
