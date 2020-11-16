@@ -1,259 +1,130 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-namespace SAE
+public class PlayerController : MonoBehaviour
 {
-    public class PlayerController : MonoBehaviour
+
+    //Player Stats
+    [Header("Player Stats")]
+    public float moveSpeed = 5f;
+    private Vector2 movementInput;
+
+    //MineCircle Variables
+    enum miningDirection
     {
-        //Decide Player
-        public enum WhichPlayer
+        NONE, UP, DOWN, LEFT, RIGHT
+    }
+    [Header("Mine Circle Variables")]
+    public GameObject mineCircle;
+    public float mineCircleOffSet = 0.65f;
+    miningDirection mDirection;
+
+    //GetComponent things (found out it is expensive in update)
+    Rigidbody rigidBody;
+    [Header("Rotation")]
+    public Transform modelTransform;
+    
+    [Header("Misc")]
+    public Highscore scoring;
+
+    private void Start()
+    {
+        rigidBody = GetComponent<Rigidbody>();
+    }
+
+    void Update()
+    {
+        //Movement
+        transform.Translate(new Vector3(movementInput.x, movementInput.y, 0f) * moveSpeed * Time.deltaTime);
+
+        //print("X movement is: " + movementInput.x);
+        //print("Y movement is: " + movementInput.y);
+
+        //Decides the direction of the mining circle depending on the movement
+        if (movementInput.x > 0.4 && movementInput.y > -0.4)
         {
-            YellowPlayer, BluePlayer, RedPlayer, GreenPlayer
+            mineCircle.SetActive(true);
+            mDirection = miningDirection.RIGHT;
+            //Stop Sliding
+            rigidBody.isKinematic = false;
+        } else if (movementInput.x < -0.4 && movementInput.y < 0.4)
+        {
+            mineCircle.SetActive(true);
+            mDirection = miningDirection.LEFT;
+            //Stop Sliding
+            rigidBody.isKinematic = false;
+        } else if (movementInput.y > 0.4 && movementInput.x > -0.4)
+        {
+            mineCircle.SetActive(true);
+            mDirection = miningDirection.UP;
+            //Stop Sliding
+            rigidBody.isKinematic = false;
+        } else if (movementInput.y < -0.4 && movementInput.x < 0.4)
+        {
+            mineCircle.SetActive(true);
+            mDirection = miningDirection.DOWN;
+            //Stop Sliding
+            rigidBody.isKinematic = false;
+        } else
+        {
+            mineCircle.SetActive(false);
         }
-        [Header("Select Player")]
-        public WhichPlayer whichPlayer;
 
-        //MineCircle Variables
-        enum miningDirection
+        if (movementInput.y < 0.01 && movementInput.x < 0.01 && movementInput.y > -0.01 && movementInput.x > -0.01)
         {
-            NONE, UP, DOWN, LEFT, RIGHT
+            //Stop Sliding
+            rigidBody.isKinematic = true;
+        } else
+        {
+            rigidBody.isKinematic = false;
         }
-        [Header("Mine Circle Variables")]
-        public GameObject mineCircle;
-        public float mineCircleOffSet = 0.65f;
-        miningDirection mDirection;
 
-        void Update()
+        //Moves the mining circle to face the direction of the axis values
+        switch (mDirection)
         {
-            //Figures out which axis/controller it should be set to based on what is selected in the inspector
-            if (whichPlayer == WhichPlayer.YellowPlayer)
+            case miningDirection.NONE:
+                break;
+            case miningDirection.UP:
+                //Debug.Log("UP");
+                mineCircle.transform.position = transform.position + new Vector3(0f, mineCircleOffSet, 0f);
+                modelTransform.rotation = Quaternion.Euler(-90f, 0f, 0f);
+                break;
+            case miningDirection.DOWN:
+                //Debug.Log("DOWN");
+                mineCircle.transform.position = transform.position + new Vector3(0f, -mineCircleOffSet, 0f);
+                modelTransform.rotation = Quaternion.Euler(90f, 180f, 0f);
+                break;
+            case miningDirection.LEFT:
+                //Debug.Log("LEFT");
+                mineCircle.transform.position = transform.position + new Vector3(-mineCircleOffSet, 0f, 0f); //left
+                modelTransform.rotation = Quaternion.Euler(0f, -90f, 90f);
+                break;
+            case miningDirection.RIGHT:
+                //Debug.Log("RIGHT");
+                mineCircle.transform.position = transform.position + new Vector3(mineCircleOffSet, 0f, 0f); //right
+                modelTransform.rotation = Quaternion.Euler(0f, 90f, -90f);
+                break;
+        }
+
+    }
+
+    public void OnMove(InputAction.CallbackContext ctx) => movementInput = ctx.ReadValue<Vector2>();
+
+    //Collecting Fruit
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Fruit"))
+        {
+            
+            if (other.gameObject.GetComponent<Fruit>().retrievedPoints == false)
             {
-                Vector2 axisValues = SAE.ArcadeMachine.PlayerJoystickAxisStatic(ArcadeMachine.PlayerColorId.YELLOW_PLAYER);
-                if (axisValues.y < 0)
-                {
-                    //up
-                    
-                    mDirection = miningDirection.UP;
-                }
-                if (axisValues.y > 0)
-                {
-                    //down
-                    
-                    mDirection = miningDirection.DOWN;
-                }
-                if (axisValues.x > 0)
-                {
-                    //right
-                    
-                    mDirection = miningDirection.RIGHT;
-                }
-                if (axisValues.x < 0)
-                {
-                    //left
-                    
-                    mDirection = miningDirection.LEFT;
-                }
-
-                if (axisValues.x != 0)
-                {
-                    mineCircle.SetActive(true);
-                }
-                else if (axisValues.y != 0)
-                {
-                    mineCircle.SetActive(true);
-                }
-                else
-                {
-                    mineCircle.SetActive(false);
-                }
-
+                scoring.IncreaseScore(other.gameObject.GetComponent<Fruit>().pointWorth);
+                Destroy(other.gameObject, other.gameObject.GetComponent<Fruit>().deathTime);
+                other.gameObject.GetComponent<Fruit>().retrievedPoints = true;
             }
-            else if (whichPlayer == WhichPlayer.BluePlayer)
-            {
-                Vector2 axisValues = SAE.ArcadeMachine.PlayerJoystickAxisStatic(ArcadeMachine.PlayerColorId.BLUE_PLAYER);
-                if (axisValues.y < 0)
-                {
-                    //up
-                    
-                    mDirection = miningDirection.UP;
-                }
-                if (axisValues.y > 0)
-                {
-                    //down
-                    
-                    mDirection = miningDirection.DOWN;
-                }
-                if (axisValues.x > 0)
-                {
-                    //right
-                    
-                    mDirection = miningDirection.RIGHT;
-                }
-                if (axisValues.x < 0)
-                {
-                    //left
-                    
-                    mDirection = miningDirection.LEFT;
-                }
-
-                if (axisValues.x != 0)
-                {
-                    mineCircle.SetActive(true);
-                }
-                else if (axisValues.y != 0)
-                {
-                    mineCircle.SetActive(true);
-                }
-                else
-                {
-                    mineCircle.SetActive(false);
-                }
-            }
-            else if (whichPlayer == WhichPlayer.RedPlayer)
-            {
-                Vector2 axisValues = SAE.ArcadeMachine.PlayerJoystickAxisStatic(ArcadeMachine.PlayerColorId.RED_PLAYER);
-                if (axisValues.y < 0)
-                {
-                    //up
-                    
-                    mDirection = miningDirection.UP;
-                }
-                if (axisValues.y > 0)
-                {
-                    //down
-                    
-                    mDirection = miningDirection.DOWN;
-                }
-                if (axisValues.x > 0)
-                {
-                    //right
-                    
-                    mDirection = miningDirection.RIGHT;
-                }
-                if (axisValues.x < 0)
-                {
-                    //left
-                    
-                    mDirection = miningDirection.LEFT;
-                }
-
-                if (axisValues.x != 0)
-                {
-                    mineCircle.SetActive(true);
-                }
-                else if (axisValues.y != 0)
-                {
-                    mineCircle.SetActive(true);
-                }
-                else
-                {
-                    mineCircle.SetActive(false);
-                }
-            }
-            else if (whichPlayer == WhichPlayer.GreenPlayer)
-            {
-                Vector2 axisValues = SAE.ArcadeMachine.PlayerJoystickAxisStatic(ArcadeMachine.PlayerColorId.GREEN_PLAYER);
-                if (axisValues.y < 0)
-                {
-                    //up
-                    
-                    mDirection = miningDirection.UP;
-                }
-                if (axisValues.y > 0)
-                {
-                    //down
-                    
-                    mDirection = miningDirection.DOWN;
-                }
-                if (axisValues.x > 0)
-                {
-                    //right
-                    
-                    mDirection = miningDirection.RIGHT;
-                }
-                if (axisValues.x < 0)
-                {
-                    //left
-                    
-                    mDirection = miningDirection.LEFT;
-                }
-
-                if (axisValues.x != 0)
-                {
-                    mineCircle.SetActive(true);
-                }
-                else if (axisValues.y != 0)
-                {
-                    mineCircle.SetActive(true);
-                }
-                else
-                {
-                    mineCircle.SetActive(false);
-                }
-            }
-            else
-            {
-                print("Something has gone wrong, a player should be assigned but somehow they haven't been");
-            }
-
-            //Sets the axis values
-            //float inputY = axisValues.y;
-            //float inputX = axisValues.x;
-
-            //print("the y value is " + axisValues.y);
-            //print("the x value is " + axisValues.x);
-
-
-            //Determines where the mining circle should be based on the direction of the axis values
-            /*if (axisValues.y < 0)
-            {
-                //up
-                
-                mDirection = miningDirection.UP;
-            }
-            if (axisValues.y > 0)
-            {
-                //down
-                
-                mDirection = miningDirection.DOWN;
-            }
-            if (axisValues.x > 0)
-            {
-                //right
-                
-                mDirection = miningDirection.RIGHT;
-            }
-            if (axisValues.x < 0)
-            {
-                //left
-                
-                mDirection = miningDirection.LEFT;
-            }*/
-
-            //Moves the mining circle to face the direction of the axis values
-            switch (mDirection)
-            {
-                case miningDirection.NONE:
-                    break;
-                case miningDirection.UP:
-                    //Debug.Log("UP");
-                    mineCircle.transform.position = transform.position + new Vector3(0f, mineCircleOffSet, 0f);
-                    break;
-                case miningDirection.DOWN:
-                    //Debug.Log("DOWN");
-                    mineCircle.transform.position = transform.position + new Vector3(0f, -mineCircleOffSet, 0f);
-                    break;
-                case miningDirection.LEFT:
-                    //Debug.Log("LEFT");
-                    mineCircle.transform.position = transform.position + new Vector3(-mineCircleOffSet, 0f, 0f); //left
-                    break;
-                case miningDirection.RIGHT:
-                    //Debug.Log("RIGHT");
-                    mineCircle.transform.position = transform.position + new Vector3(mineCircleOffSet, 0f, 0f); //right
-                    break;
-            }
-
         }
     }
+
 }

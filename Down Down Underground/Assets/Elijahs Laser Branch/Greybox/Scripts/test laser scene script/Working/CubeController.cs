@@ -10,7 +10,7 @@ public class CubeController : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(new Vector3(movementInput.x, 0, movementInput.y) * speed * Time.deltaTime);
+        transform.Translate(new Vector3(movementInput.x, movementInput.y, 0f) * speed * Time.deltaTime);
 
     }
 

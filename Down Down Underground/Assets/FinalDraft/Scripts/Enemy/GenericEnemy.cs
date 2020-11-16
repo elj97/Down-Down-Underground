@@ -11,6 +11,7 @@ public class GenericEnemy : MonoBehaviour
     public float moveSpeed;
     public float currentMoveSpeed;
     public float detectionRange = 2f;
+    int pointWorth;
 
     //Enemy Factors
     [Header("Patrolling")]
@@ -19,11 +20,14 @@ public class GenericEnemy : MonoBehaviour
     public GameObject patrolPoint1;
     public GameObject patrolPoint2;
     bool atStartPoint = true;
+    public float timeToDie = 0.1f;
 
 
     //Other Scripts to be called
     [Header("Other Scripts")]
     public AIPath aIPathScript;
+    public Highscore scoring;
+    public Killstreak killstreak;
 
     //Pathing for the Player/s
     [Header("Pathing to Player")]
@@ -39,6 +43,12 @@ public class GenericEnemy : MonoBehaviour
     //Variables with no place at the moment
     [Header("Misc")]
     float randomNumber;
+    public bool testKill = false;
+    bool deathHasHappened = false;
+
+    //GetComponent things (found out it is expensive in update)
+    AIDestinationSetter aIDestinationSetter;
+    
 
     IEnumerator FollowPlayer(float Count)
     {
@@ -74,6 +84,15 @@ public class GenericEnemy : MonoBehaviour
         //Initiate the Coroutine loop
         StartCoroutine("FollowPlayer", detectPlayerTime);
 
+        if (GetComponent<MeleeEnemy>() != null)
+        {
+            pointWorth = GetComponent<MeleeEnemy>().pointWorth;
+        }
+        if (GetComponent<RangedEnemy>() != null)
+        {
+            pointWorth = GetComponent<RangedEnemy>().pointWorth;
+        }
+        aIDestinationSetter = GetComponent<AIDestinationSetter>();
     }
 
     void Update()
@@ -84,22 +103,27 @@ public class GenericEnemy : MonoBehaviour
         {
             if (atStartPoint == true)
             {
-                GetComponent<AIDestinationSetter>().target = patrolPoint1.transform;
+                aIDestinationSetter.target = patrolPoint1.transform;
             }
             if (atStartPoint == false)
             {
-                GetComponent<AIDestinationSetter>().target = patrolPoint2.transform;
+                aIDestinationSetter.target = patrolPoint2.transform;
             }
         }
         
         if (followPlayer == true)
         {
             patrolling = false;
-            GetComponent<AIDestinationSetter>().target = detectPlayerScript.followedPlayer.transform;
+            aIDestinationSetter.target = detectPlayerScript.followedPlayer.transform;
         }
 
-        //Kill Player
         if (health <= 0)
+        {
+            Death();
+        }
+
+        //Testing Killstreaks
+        if (testKill == true)
         {
             Death();
         }
@@ -129,6 +153,12 @@ public class GenericEnemy : MonoBehaviour
     //Death
     public void Death()
     {
-        Destroy(this.gameObject);
+        if (deathHasHappened == false)
+        {
+            scoring.IncreaseScore(pointWorth);
+            Destroy(transform.parent.gameObject, timeToDie);
+            deathHasHappened = true;
+            killstreak.killstreak++;
+        }
     }
 }

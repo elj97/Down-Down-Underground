@@ -9,6 +9,8 @@ TagManager:
   - PatrolPoint1
   - PatrolPoint2
   - Pipe
+  - Model
+  - Fruit
   layers:
   - Default
   - TransparentFX

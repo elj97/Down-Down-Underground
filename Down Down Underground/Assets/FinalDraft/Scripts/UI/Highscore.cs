@@ -17,7 +17,7 @@ public class Highscore : MonoBehaviour
         if (PlayerPrefs.HasKey("highScore"))
         {
             bestScore = PlayerPrefs.GetInt("highScore");
-            highScore.text = "Best: " + bestScore;
+            highScore.text = "" + bestScore;
         }
 
         score.text = "0";
@@ -25,8 +25,10 @@ public class Highscore : MonoBehaviour
 
     void Update()
     {
+        //IncreaseScore(1);
         if (Input.GetKeyDown(KeyCode.E))
         {
+            print("This happened");
             IncreaseScore(1);
         }
 
@@ -40,14 +42,13 @@ public class Highscore : MonoBehaviour
     {
         currentScore += increase;
 
-
         // can't use on click for some reason??
         if (PlayerPrefs.GetInt("highScore") < currentScore) 
         {
             PlayerPrefs.SetInt("highScore", currentScore);
 
             bestScore = PlayerPrefs.GetInt("highScore");
-            highScore.text = "Best: " + bestScore;
+            highScore.text = "" + bestScore;
         }
 
         score.text = "" + currentScore;
@@ -57,8 +58,8 @@ public class Highscore : MonoBehaviour
     {
         // can't use on click for some reason??
         PlayerPrefs.DeleteKey("highScore");
-
+        
         score.text = "0";
-        highScore.text = "Best: xx";
+        highScore.text = "0";
     }
 }
