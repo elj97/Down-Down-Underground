@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.unity.inputsystem": "1.0.0",
     "com.unity.package-manager-ui": "2.2.0",
     "com.unity.probuilder": "4.0.5",
     "com.unity.textmeshpro": "2.0.1",
