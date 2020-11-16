@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/SAEArcadeCabinet/Scenes/SAEArcadeCabinetInputTest.unity
-    guid: 671be74c7f567644f9dd28e323a7731f
-  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Temp Scenes/ArcadePlaytest.unity
     guid: 8a2970b66f44903459edb3010a1f06db
+  - enabled: 1
+    path: Assets/Temp Scenes/FirstLevelDraft.unity
+    guid: 18445a1401864b84a924f53906bc96c2
   m_configObjects: {}
