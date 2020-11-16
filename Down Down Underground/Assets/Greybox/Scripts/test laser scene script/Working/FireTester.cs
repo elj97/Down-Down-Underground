@@ -9,24 +9,37 @@ public class FireTester : MonoBehaviour
 
     PS4Controls controls;
 
+    private LineRenderer lr;
+
     private void Awake()
     {
         controls = new PS4Controls();
-        controls.Enable();
-
-        controls.Player.Fire.performed += ctx => Fire();
     }
 
     void Fire()
     {
-        // can add reload delay for fire - no button mashing
+        //// can add reload delay for fire - no button mashing
+        //RaycastHit hit;
+
+        //if ( Physics.Raycast(laser.transform.position, laser.transform.forward, out hit) )
+        //{
+        //    if ( hit.collider.tag == "Enemy" )
+        //    {
+        //        print("Hit : " + hit.collider.gameObject.name);
+        //    }
+        //}
+
         RaycastHit hit;
 
-        if ( Physics.Raycast(laser.transform.position, laser.transform.forward, out hit) )
+        if ( Physics.Raycast(transform.position, transform.forward, out hit) )
         {
-            if ( hit.collider.tag == "Enemy" )
+            if ( hit.collider )
             {
-                print("Hit : " + hit.collider.gameObject.name);
+                lr.SetPosition(1, new Vector3(0, 0, hit.distance));
+            }
+            else
+            {
+                lr.SetPosition(1, new Vector3(0, 0, 5000));
             }
         }
     }
@@ -34,21 +47,26 @@ public class FireTester : MonoBehaviour
     private void OnEnable()
     {
         controls.Player.Fire.performed += Fire_performed;
-        controls.Player.Fire.Enable();
+        controls.Enable();
 
-        laser.SetActive(true);
+        //laser.SetActive(true);
     }
 
     private void OnDisable()
     {
         controls.Player.Fire.performed -= Fire_performed;
-        controls.Player.Fire.Disable();
+        controls.Enable();
 
-        laser.SetActive(false);
+        //laser.SetActive(false);
     }
 
     private void Fire_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         Debug.Log("Fire");
+    }
+
+    private void Update()
+    {
+        controls.Player.Fire.performed += ctx => Fire();
     }
 }

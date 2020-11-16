@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Cube : MonoBehaviour
+public class InputControls : MonoBehaviour
 {
     //instance
     PS4Controls controls;
@@ -43,6 +43,7 @@ public class Cube : MonoBehaviour
         transform.Rotate(r, Space.Self);
     }
 
+    #region - Enable/Disable -
     private void OnEnable()
     {
         controls.Player.Enable();
@@ -52,4 +53,5 @@ public class Cube : MonoBehaviour
     {
         controls.Player.Disable();
     }
+    #endregion
 }

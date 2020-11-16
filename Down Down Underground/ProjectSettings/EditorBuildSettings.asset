@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/SAEArcadeCabinet/Scenes/SAEArcadeCabinetInputTest.unity
     guid: 671be74c7f567644f9dd28e323a7731f
+  - enabled: 1
+    path: Assets/Greybox/Scenes/TestLaser.unity
+    guid: 45e5d13f418378645af6e976f1db489c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 388c3a40072f6144991b1ecca0ca4aec,
       type: 2}
