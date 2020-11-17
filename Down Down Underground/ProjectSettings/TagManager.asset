@@ -12,6 +12,7 @@ TagManager:
   - Model
   - Fruit
   - PlayerProj
+  - Projectile
   layers:
   - Default
   - TransparentFX

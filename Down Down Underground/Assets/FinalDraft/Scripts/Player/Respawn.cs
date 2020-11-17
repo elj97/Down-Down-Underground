@@ -16,40 +16,38 @@ public class Respawn : MonoBehaviour
     [SerializeField] private Transform redRespawnPoint;
     [SerializeField] private Transform greenRespawnPoint;
 
- 
+    public enum Player
+    {
+        NONE, YELLOW, BLUE, RED, GREEN
+    }
+    [Header("Misc")]
+    public Player playerSelect;
 
     [Header("Spawn Delay")] 
     public float spawnDelay = 2f;
 
-
-    void OnTriggerEnter(Collider other)
+    public void YellowPlayerDie()
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer ("YellowPlayer"))
-        {
-            YellowPlayer.SetActive(false);
-            StartCoroutine("Respawner", spawnDelay);
-        }
-        if (other.gameObject.layer == LayerMask.NameToLayer("BluePlayer"))
-        {
-            BluePlayer.SetActive(false);
-            StartCoroutine("Respawner", spawnDelay);
-        }
-        if (other.gameObject.layer == LayerMask.NameToLayer("RedPlayer"))
-        {
-            RedPlayer.SetActive(false);
-            StartCoroutine("Respawner", spawnDelay);
-        }
-        if (other.gameObject.layer == LayerMask.NameToLayer("GreenPlayer"))
-        {
-            GreenPlayer.SetActive(false);
-            StartCoroutine("Respawner", spawnDelay);
-        }
+        YellowPlayer.SetActive(false);
+        StartCoroutine("YellowRespawner", spawnDelay);
+    }
+    public void BluePlayerDie()
+    {
+        BluePlayer.SetActive(false);
+        StartCoroutine("BlueRespawner", spawnDelay);
+    }
+    public void RedPlayerDie()
+    {
+        RedPlayer.SetActive(false);
+        StartCoroutine("RedRespawner", spawnDelay);
+    }
+    public void GreenPlayerDie()
+    {
+        GreenPlayer.SetActive(false);
+        StartCoroutine("GreenRespawner", spawnDelay);
     }
 
-
-    // here i want to get the player lives if last heart destroyed then die and start the respawner coroutine
-
-    IEnumerator YellowRespawner(float Count)
+    public IEnumerator YellowRespawner(float Count)
     {
         yield return new WaitForSeconds(Count);
         YellowPlayer.transform.position = yellowRespawnPoint.transform.position;
@@ -57,7 +55,7 @@ public class Respawn : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator BlueRespawner(float Count)
+    public IEnumerator BlueRespawner(float Count)
     {
         yield return new WaitForSeconds(Count);
         BluePlayer.transform.position = blueRespawnPoint.transform.position;
@@ -65,7 +63,7 @@ public class Respawn : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator RedRespawner(float Count)
+    public IEnumerator RedRespawner(float Count)
     {
         yield return new WaitForSeconds(Count);
         RedPlayer.transform.position = redRespawnPoint.transform.position;
@@ -73,7 +71,7 @@ public class Respawn : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator Respawner(float Count)
+    public IEnumerator GreenRespawner(float Count)
     {
         yield return new WaitForSeconds(Count);
         GreenPlayer.transform.position = greenRespawnPoint.transform.position;

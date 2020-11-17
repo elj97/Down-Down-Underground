@@ -21,10 +21,17 @@ public class PlayerController : MonoBehaviour
     public float mineCircleOffSet = 0.65f;
     miningDirection mDirection;
 
+    
+    public enum Player
+    {
+        NONE, YELLOW, BLUE, RED, GREEN
+    }
+    [Header("Player Select")]
+    public Player playerSelect;
+
     //GetComponent things (found out it is expensive in update)
     Rigidbody rigidBody;
     ShootScript shootScript;
-
 
     [Header("Rotation")]
     public Transform modelTransform;
@@ -34,6 +41,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Misc")]
     public Highscore scoring;
+    public Respawn respawnScript;
 
     private void Start()
     {
@@ -124,7 +132,6 @@ public class PlayerController : MonoBehaviour
                 shootScript.projectileRotation = 0f;
                 break;
         }
-
     }
 
     public void OnMove(InputAction.CallbackContext ctx) => movementInput = ctx.ReadValue<Vector2>();
@@ -141,6 +148,41 @@ public class PlayerController : MonoBehaviour
                 Destroy(other.gameObject, other.gameObject.GetComponent<Fruit>().deathTime);
                 other.gameObject.GetComponent<Fruit>().retrievedPoints = true;
             }
+        }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Death();
+        }
+        if (other.gameObject.CompareTag("Projectile"))
+        {
+            Death();
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
+
+    void Death()
+    {
+        if (playerSelect == Player.YELLOW)
+        {
+            respawnScript.YellowPlayerDie();
+        }
+        if (playerSelect == Player.BLUE)
+        {
+            respawnScript.BluePlayerDie();
+        }
+        if (playerSelect == Player.RED)
+        {
+            respawnScript.RedPlayerDie();
+        }
+        if (playerSelect == Player.GREEN)
+        {
+            respawnScript.GreenPlayerDie();
         }
     }
 

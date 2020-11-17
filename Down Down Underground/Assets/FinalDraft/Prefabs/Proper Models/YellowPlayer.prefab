@@ -91,7 +91,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6971455352292654849}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 12, z: 0}
+  m_LocalPosition: {x: 1.0600001, y: 18.380001, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 6797376141225275403}
@@ -160,6 +160,7 @@ MonoBehaviour:
   moveSpeed: 5
   mineCircle: {fileID: 6971455352286335456}
   mineCircleOffSet: 1.5
+  playerSelect: 0
   modelTransform: {fileID: 6797376141225275403}
   fireAction:
     m_Name: Fire
@@ -178,6 +179,7 @@ MonoBehaviour:
       m_Action: Fire
       m_Flags: 0
   scoring: {fileID: 0}
+  respawnScript: {fileID: 0}
 --- !u!114 &7514707915759188227
 MonoBehaviour:
   m_ObjectHideFlags: 0
