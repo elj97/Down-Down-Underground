@@ -11,6 +11,7 @@ TagManager:
   - Pipe
   - Model
   - Fruit
+  - PlayerProj
   layers:
   - Default
   - TransparentFX

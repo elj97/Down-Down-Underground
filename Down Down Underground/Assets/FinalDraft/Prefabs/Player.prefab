@@ -146,6 +146,16 @@ MonoBehaviour:
   moveSpeed: 5
   mineCircle: {fileID: 8132897828106038951}
   mineCircleOffSet: 1
+  modelTransform: {fileID: 0}
+  fireAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d89cf3d8-ddcb-4bfa-9456-e9caf748321a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  scoring: {fileID: 0}
 --- !u!114 &8659249729494828612
 MonoBehaviour:
   m_ObjectHideFlags: 0

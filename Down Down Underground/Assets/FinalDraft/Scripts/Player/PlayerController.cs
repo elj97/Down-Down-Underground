@@ -23,15 +23,22 @@ public class PlayerController : MonoBehaviour
 
     //GetComponent things (found out it is expensive in update)
     Rigidbody rigidBody;
+    ShootScript shootScript;
+
+
     [Header("Rotation")]
     public Transform modelTransform;
-    
+
+    [Header("Input System")]
+    public InputAction fireAction;
+
     [Header("Misc")]
     public Highscore scoring;
 
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        shootScript = GetComponent<ShootScript>();
     }
 
     void Update()
@@ -81,6 +88,11 @@ public class PlayerController : MonoBehaviour
             rigidBody.isKinematic = false;
         }
 
+        if (fireAction.triggered)
+        {
+            Fire();
+        }
+
         //Moves the mining circle to face the direction of the axis values
         switch (mDirection)
         {
@@ -90,21 +102,26 @@ public class PlayerController : MonoBehaviour
                 //Debug.Log("UP");
                 mineCircle.transform.position = transform.position + new Vector3(0f, mineCircleOffSet, 0f);
                 modelTransform.rotation = Quaternion.Euler(-90f, 0f, 0f);
+                shootScript.projectileRotation = -90f;
+                
                 break;
             case miningDirection.DOWN:
                 //Debug.Log("DOWN");
                 mineCircle.transform.position = transform.position + new Vector3(0f, -mineCircleOffSet, 0f);
                 modelTransform.rotation = Quaternion.Euler(90f, 180f, 0f);
+                shootScript.projectileRotation = 90f;
                 break;
             case miningDirection.LEFT:
                 //Debug.Log("LEFT");
                 mineCircle.transform.position = transform.position + new Vector3(-mineCircleOffSet, 0f, 0f); //left
                 modelTransform.rotation = Quaternion.Euler(0f, -90f, 90f);
+                shootScript.projectileRotation = 180f;
                 break;
             case miningDirection.RIGHT:
                 //Debug.Log("RIGHT");
                 mineCircle.transform.position = transform.position + new Vector3(mineCircleOffSet, 0f, 0f); //right
                 modelTransform.rotation = Quaternion.Euler(0f, 90f, -90f);
+                shootScript.projectileRotation = 0f;
                 break;
         }
 
@@ -125,6 +142,21 @@ public class PlayerController : MonoBehaviour
                 other.gameObject.GetComponent<Fruit>().retrievedPoints = true;
             }
         }
+    }
+
+    void OnEnable()
+    {
+        fireAction.Enable();
+    }
+
+    void OnDisable()
+    {
+        fireAction.Disable();
+    }
+
+    void Fire()
+    {
+        shootScript.Shoot();
     }
 
 }

@@ -238,6 +238,15 @@ MonoBehaviour:
   mineCircle: {fileID: 8398790922187158131}
   mineCircleOffSet: 1.5
   modelTransform: {fileID: 2066979589967777000}
+  fireAction:
+    m_Name: Fire
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 17670f87-a2ff-4fb6-928f-20907e556087
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  scoring: {fileID: 0}
 --- !u!114 &8969043333672082064
 MonoBehaviour:
   m_ObjectHideFlags: 0

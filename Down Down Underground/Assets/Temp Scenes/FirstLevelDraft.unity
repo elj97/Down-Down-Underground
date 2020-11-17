@@ -1084,9 +1084,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2015242076}
-  - {fileID: 1320732641}
   - {fileID: 1799192758}
+  - {fileID: 1320732641}
+  - {fileID: 2015242076}
   m_Father: {fileID: 1176562483}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15200,6 +15200,16 @@ PrefabInstance:
       propertyPath: scoring
       value: 
       objectReference: {fileID: 1948069695}
+    - target: {fileID: 1165287643924036487, guid: 3107c6c8faf375243bb60d842b4f08c7,
+        type: 3}
+      propertyPath: fireAction.m_Id
+      value: 0993255b-0109-4cc1-a251-4de48355677d
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165287643924036487, guid: 3107c6c8faf375243bb60d842b4f08c7,
+        type: 3}
+      propertyPath: fireAction.m_Name
+      value: Fire
+      objectReference: {fileID: 0}
     - target: {fileID: 8398790922187158130, guid: 3107c6c8faf375243bb60d842b4f08c7,
         type: 3}
       propertyPath: scanPath

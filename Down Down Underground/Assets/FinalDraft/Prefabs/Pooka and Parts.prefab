@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 172024484210803764}
   m_Layer: 9
   m_Name: Pooka
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -347,13 +347,17 @@ MonoBehaviour:
   patrolling: 0
   patrolPoint1: {fileID: 172024484331195157}
   patrolPoint2: {fileID: 172024483377964651}
+  timeToDie: 0.1
   aIPathScript: {fileID: 172024484210803752}
+  scoring: {fileID: 0}
+  killstreak: {fileID: 0}
   checkDistanceTime: 1
   playerInRange: 0
   playerDetectionCollider: {fileID: 172024482620854736}
   detectPlayerScript: {fileID: 6163033684227655997}
   followPlayerChance: 50
   detectPlayerTime: 1
+  testKill: 0
 --- !u!114 &172024484210803764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,7 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8aaaba0481e17a4988b7101993ac4f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  genericEnemyScript: {fileID: 172024484210803754}
+  pointWorth: 50
 --- !u!1 &172024484331195157
 GameObject:
   m_ObjectHideFlags: 0

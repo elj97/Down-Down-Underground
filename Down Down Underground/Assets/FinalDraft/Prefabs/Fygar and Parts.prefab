@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15699786b152624893f69d0bb33386d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customValue: 0
 --- !u!1 &5822354316212213021
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,7 +64,7 @@ GameObject:
   - component: {fileID: 5822354316668458166}
   m_Layer: 9
   m_Name: Fygar
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

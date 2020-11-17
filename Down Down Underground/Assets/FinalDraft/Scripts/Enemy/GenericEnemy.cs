@@ -148,6 +148,10 @@ public class GenericEnemy : MonoBehaviour
         {
             atStartPoint = true;
         }
+        if (other.gameObject.CompareTag("PlayerProj"))
+        {
+            health--;
+        }
     }
 
     //Death
