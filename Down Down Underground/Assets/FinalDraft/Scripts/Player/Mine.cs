@@ -49,8 +49,6 @@ public class Mine : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Ground"))
             {
-                SoundManager.PlaySound("digSound");
-
                 if (other.gameObject != targetTile)
                 {
                     miningTime = miningTimeDur;
