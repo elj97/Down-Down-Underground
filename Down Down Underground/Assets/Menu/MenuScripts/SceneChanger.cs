@@ -43,4 +43,14 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene("Credits");
     }
+
+    public void Scene5()
+    {
+        SceneManager.LoadScene("You Lose");
+    }
+
+    public void Scene6()
+    {
+        SceneManager.LoadScene("You Win");
+    }
 }

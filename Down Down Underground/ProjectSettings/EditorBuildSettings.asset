@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/SAEArcadeCabinet/Scenes/SAEArcadeCabinetInputTest.unity
     guid: 671be74c7f567644f9dd28e323a7731f
   - enabled: 1
-    path: Assets/Menu/Main Menu.unity
+    path: Assets/Menu/MenuScenes/Main Menu.unity
     guid: a6913fa5026106647b4e89bf2439a5aa
   - enabled: 1
-    path: Assets/Menu/Controls.unity
+    path: Assets/Menu/MenuScenes/Controls.unity
     guid: 237da3ce8210b834dafcd0bebe5197cc
   - enabled: 1
-    path: Assets/Menu/Credits.unity
+    path: Assets/Menu/MenuScenes/Credits.unity
     guid: cd45d5a8447853544807d95b0f53b0de
   m_configObjects: {}
