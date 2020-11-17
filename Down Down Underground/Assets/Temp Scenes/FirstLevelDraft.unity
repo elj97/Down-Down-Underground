@@ -13537,6 +13537,16 @@ PrefabInstance:
       propertyPath: customValue
       value: -5.14
       objectReference: {fileID: 0}
+    - target: {fileID: 5822354316668458155, guid: 5324c58d1fe058e44806e2173670ba94,
+        type: 3}
+      propertyPath: killstreak
+      value: 
+      objectReference: {fileID: 350717236}
+    - target: {fileID: 5822354316668458155, guid: 5324c58d1fe058e44806e2173670ba94,
+        type: 3}
+      propertyPath: scoring
+      value: 
+      objectReference: {fileID: 1948069695}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5324c58d1fe058e44806e2173670ba94, type: 3}
 --- !u!4 &1893916521 stripped
