@@ -14,4 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Temp Scenes/FirstLevelDraft.unity
     guid: 18445a1401864b84a924f53906bc96c2
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 388c3a40072f6144991b1ecca0ca4aec,
+      type: 2}
