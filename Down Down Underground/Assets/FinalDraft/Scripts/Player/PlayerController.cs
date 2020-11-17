@@ -170,7 +170,7 @@ namespace SAE
         }
         
 
-        //Collecting Fruit
+        
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Fruit"))
@@ -178,6 +178,7 @@ namespace SAE
 
                 if (other.gameObject.GetComponent<Fruit>().retrievedPoints == false)
                 {
+                    SoundManager.PlaySound("fruitPickup");
                     scoring.IncreaseScore(other.gameObject.GetComponent<Fruit>().pointWorth);
                     Destroy(other.gameObject, other.gameObject.GetComponent<Fruit>().deathTime);
                     other.gameObject.GetComponent<Fruit>().retrievedPoints = true;
