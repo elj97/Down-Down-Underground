@@ -4,54 +4,82 @@ using UnityEngine;
 
 public class Respawn : MonoBehaviour
 {
-    public GameObject Player;
-    [SerializeField] private Transform Playermodel;
-    [SerializeField] private Transform respawnPoint;
+    [Header("Players")]
+    public GameObject YellowPlayer;
+    public GameObject BluePlayer;
+    public GameObject RedPlayer;
+    public GameObject GreenPlayer;
+
+    [Header("Respawn Points")]
+    [SerializeField] private Transform yellowRespawnPoint;
+    [SerializeField] private Transform blueRespawnPoint;
+    [SerializeField] private Transform redRespawnPoint;
+    [SerializeField] private Transform greenRespawnPoint;
+
+ 
+
+    [Header("Spawn Delay")] 
     public float spawnDelay = 2f;
 
-    /*  //script that works
-    void OnTriggerEnter(Collider other)
-    {
-        Player.transform.position = respawnPoint.transform.position;
-    }*/
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.layer == LayerMask.NameToLayer ("YellowPlayer"))
         {
-            Player.SetActive(false);
+            YellowPlayer.SetActive(false);
+            StartCoroutine("Respawner", spawnDelay);
+        }
+        if (other.gameObject.layer == LayerMask.NameToLayer("BluePlayer"))
+        {
+            BluePlayer.SetActive(false);
+            StartCoroutine("Respawner", spawnDelay);
+        }
+        if (other.gameObject.layer == LayerMask.NameToLayer("RedPlayer"))
+        {
+            RedPlayer.SetActive(false);
+            StartCoroutine("Respawner", spawnDelay);
+        }
+        if (other.gameObject.layer == LayerMask.NameToLayer("GreenPlayer"))
+        {
+            GreenPlayer.SetActive(false);
             StartCoroutine("Respawner", spawnDelay);
         }
     }
 
+
     // here i want to get the player lives if last heart destroyed then die and start the respawner coroutine
+
+    IEnumerator YellowRespawner(float Count)
+    {
+        yield return new WaitForSeconds(Count);
+        YellowPlayer.transform.position = yellowRespawnPoint.transform.position;
+        YellowPlayer.SetActive(true);
+        yield return null;
+    }
+
+    IEnumerator BlueRespawner(float Count)
+    {
+        yield return new WaitForSeconds(Count);
+        BluePlayer.transform.position = blueRespawnPoint.transform.position;
+        BluePlayer.SetActive(true);
+        yield return null;
+    }
+
+    IEnumerator RedRespawner(float Count)
+    {
+        yield return new WaitForSeconds(Count);
+        RedPlayer.transform.position = redRespawnPoint.transform.position;
+        RedPlayer.SetActive(true);
+        yield return null;
+    }
 
     IEnumerator Respawner(float Count)
     {
         yield return new WaitForSeconds(Count);
-        Playermodel.transform.position = respawnPoint.transform.position;
-        Player.SetActive(true);
+        GreenPlayer.transform.position = greenRespawnPoint.transform.position;
+        GreenPlayer.SetActive(true);
         yield return null;
     }
 
-
-    // script to use coroutine
-    /*public GameObject player;
-    public Transform spawnPoint;
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            Destroy(other.gameObject);
-            StartCoroutine("Respawner", 2f);
-        }
-    }
-
-    IEnumerator Respawner(float spawnDelay)
-    {
-        yield return new WaitForSeconds(spawnDelay);
-        Instantiate(player, spawnPoint.position, spawnPoint.rotation);
-    }*/
 
 }
