@@ -20,17 +20,7 @@ public class PlayerLives : MonoBehaviour
         else if (life < 3)
         {
             Destroy(hearts[2].gameObject);
+            print("you are a loser");
         }
-
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            TakeDamage(1);
-        }
-
-    }
-
-    public void TakeDamage(int d)
-    {
-        life -= d;
-        print("takedamage is being called");
     }
 }

@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     [Header("Misc")]
     public Highscore scoring;
     public Respawn respawnScript;
+    public PlayerLives playerLivesScript;
 
     private void Start()
     {
@@ -168,6 +169,7 @@ public class PlayerController : MonoBehaviour
 
     void Death()
     {
+        playerLivesScript.life--;
         if (playerSelect == Player.YELLOW)
         {
             respawnScript.YellowPlayerDie();
