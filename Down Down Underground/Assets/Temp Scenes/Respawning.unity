@@ -3585,7 +3585,11 @@ Transform:
   - {fileID: 608582547}
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 5
+=======
+  m_RootOrder: 4
+>>>>>>> parent of af1d8bd... pipe worms 2
 =======
   m_RootOrder: 4
 >>>>>>> parent of af1d8bd... pipe worms 2
@@ -3596,6 +3600,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7738148258918108666}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1001 &492507416
 PrefabInstance:
@@ -3666,6 +3671,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1de4d27fa3c4dd745ad47f2c60327631, type: 3}
+=======
+>>>>>>> parent of af1d8bd... pipe worms 2
 =======
 >>>>>>> parent of af1d8bd... pipe worms 2
 --- !u!1 &497075055
