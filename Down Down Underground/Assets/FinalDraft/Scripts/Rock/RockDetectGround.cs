@@ -19,7 +19,7 @@ public class RockDetectGround : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Ground") || other.CompareTag("Pipe"))
+        if (other.CompareTag("Ground"))
         {
             noGround = false;
             triggered = true;
