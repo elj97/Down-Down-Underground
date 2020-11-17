@@ -80,9 +80,6 @@ namespace SAE
             // Poll SAE.ArcadeMachine for YELLOW players' button 1 (True if pressed once .. eg. not held down)
             if (SAE.ArcadeMachine.PlayerPressingButtonStatic(ArcadeMachine.PlayerColorId.YELLOW_PLAYER, 1, true) == true)
             { Debug.Log("YELLOW player pressed button 1 (Not held down)"); }
-
-            
-
         }
     }
 }

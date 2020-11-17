@@ -15,6 +15,7 @@ TagManager:
   - Projectile
   - Manager
   - Rock
+  - Death
   layers:
   - Default
   - TransparentFX

@@ -36,14 +36,14 @@ public class Mine : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         //print("Enter trigger");
-        if (other.gameObject.CompareTag("Rock"))
-        {
-            diggingRock = true;
-        }
-        else
-        {
-            diggingRock = false;
-        }
+        //if (other.gameObject.CompareTag("Rock"))
+        //{
+        //    diggingRock = true;
+        //}
+        //else if (other.gameObject.CompareTag("Rock") == false)
+        //{
+        //    diggingRock = false;
+        //}
 
         if (diggingRock == false)
         {
@@ -62,6 +62,22 @@ public class Mine : MonoBehaviour
                     scanPath.InitiateCoroutine();
                 }
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Rock"))
+        {
+            diggingRock = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Rock"))
+        {
+            diggingRock = false;
         }
     }
 }

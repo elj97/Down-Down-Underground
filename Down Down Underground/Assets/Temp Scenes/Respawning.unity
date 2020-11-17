@@ -1237,6 +1237,11 @@ PrefabInstance:
       propertyPath: scanPath
       value: 
       objectReference: {fileID: 541090739}
+    - target: {fileID: 9031173001860863018, guid: a20ba9e92bc17d14b852745ef9297123,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a20ba9e92bc17d14b852745ef9297123, type: 3}
 --- !u!1001 &262982490
@@ -16209,7 +16214,7 @@ PrefabInstance:
     - target: {fileID: 295553796258797588, guid: 455adfbfef451e747bd250c784dc2169,
         type: 3}
       propertyPath: mineCircleOffSet
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 295553796258797588, guid: 455adfbfef451e747bd250c784dc2169,
         type: 3}

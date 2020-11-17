@@ -152,6 +152,10 @@ public class GenericEnemy : MonoBehaviour
         {
             health--;
         }
+        if (other.gameObject.CompareTag("Death"))
+        {
+            Death();
+        }
     }
 
     //Death

@@ -42,12 +42,14 @@ namespace SAE
         public Highscore scoring;
         public Respawn respawnScript;
         public PlayerLives playerLivesScript;
+        Mine mineScript;
         #endregion
 
         private void Start()
         {
             rigidBody = GetComponent<Rigidbody>();
             shootScript = GetComponent<ShootScript>();
+            mineScript = mineCircle.GetComponent<Mine>();
         }
 
         void Update()
@@ -85,6 +87,7 @@ namespace SAE
             }
             else
             {
+                mineScript.diggingRock = false;
                 mineCircle.SetActive(false);
             }
 
@@ -186,6 +189,10 @@ namespace SAE
                 Death();
             }
             if (other.gameObject.CompareTag("Projectile"))
+            {
+                Death();
+            }
+            if (other.gameObject.CompareTag("Death"))
             {
                 Death();
             }

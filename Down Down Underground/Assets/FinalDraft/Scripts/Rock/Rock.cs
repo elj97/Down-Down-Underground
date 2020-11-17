@@ -18,6 +18,7 @@ public class Rock : MonoBehaviour
     IEnumerator Fall(float Count)
     {
         yield return new WaitForSeconds(Count);
+        gameObject.tag = "Death";
         Fall();
         yield return null;
     }

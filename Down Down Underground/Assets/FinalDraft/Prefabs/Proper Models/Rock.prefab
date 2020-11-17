@@ -185,3 +185,4 @@ MonoBehaviour:
   fallSpeed: 1
   fallStartTime: 1
   scanPath: {fileID: 0}
+  deathZone: {fileID: 0}
