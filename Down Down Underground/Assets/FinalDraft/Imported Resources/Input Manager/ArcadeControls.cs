@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Elijahs Laser Branch/ArcadeControls.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/FinalDraft/Imported Resources/Input Manager/ArcadeControls.inputactions'
 
 using System;
 using System.Collections;
