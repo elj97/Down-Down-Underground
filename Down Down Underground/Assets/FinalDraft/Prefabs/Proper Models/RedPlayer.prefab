@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 3351695701268782406}
   - component: {fileID: 5342971558739868252}
   - component: {fileID: 2771283630504680267}
+  - component: {fileID: -1195182337928171703}
   m_Layer: 11
   m_Name: RedPlayer
   m_TagString: Player
@@ -238,6 +239,15 @@ MonoBehaviour:
   mineCircle: {fileID: 3351695701266903976}
   mineCircleOffSet: 1.5
   modelTransform: {fileID: 1889985859490427206}
+  fireAction:
+    m_Name: Fire
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: df86e457-4e96-4a24-bb86-62af920f7d58
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  scoring: {fileID: 0}
 --- !u!114 &2771283630504680267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,3 +306,21 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &-1195182337928171703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3351695701268782409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b6d8cfc6bf89b48af4a0844a56a1e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 1
+  projectileSpeed: 9
+  projectileLifetime: 0.65
+  projectileRotation: 0.75
+  projectile: {fileID: 4041180867096859575, guid: 6f0796799266c224d83b623226efb220,
+    type: 3}

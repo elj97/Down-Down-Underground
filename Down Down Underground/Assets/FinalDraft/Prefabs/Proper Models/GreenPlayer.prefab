@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 5560935314042577496}
   - component: {fileID: 2993196226550089026}
   - component: {fileID: 5033449369386132565}
+  - component: {fileID: 9206208493802543986}
   m_Layer: 14
   m_Name: GreenPlayer
   m_TagString: Model
@@ -238,6 +239,15 @@ MonoBehaviour:
   mineCircle: {fileID: 5560935314036165814}
   mineCircleOffSet: 1.5
   modelTransform: {fileID: 8979009779508357792}
+  fireAction:
+    m_Name: Fire
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2a14d8bd-a7db-446b-8304-bff82164ca89
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+  scoring: {fileID: 0}
 --- !u!114 &5033449369386132565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,3 +306,21 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &9206208493802543986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5560935314042577495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b6d8cfc6bf89b48af4a0844a56a1e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 1
+  projectileSpeed: 9
+  projectileLifetime: 0.65
+  projectileRotation: 0.75
+  projectile: {fileID: 4041180867096859575, guid: 6f0796799266c224d83b623226efb220,
+    type: 3}
