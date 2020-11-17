@@ -20,14 +20,6 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
-                },
-                {
-                    "name": "Join",
-                    "type": "Button",
-                    "id": "fc8117ac-57f1-41d8-a830-3a3a2b2e4b89",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -99,17 +91,6 @@
                 },
                 {
                     "name": "",
-                    "id": "4cf9b3cd-2c2d-40fc-ab86-9a3e1e8edda8",
-                    "path": "<Joystick>/stick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "ArcadeMachine",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "1440e5de-3aaf-47dc-ba6c-15af0adc1191",
                     "path": "<Keyboard>/space",
                     "interactions": "Press",
@@ -127,39 +108,6 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a5753f2c-f832-4507-ab52-be58c755ad0e",
-                    "path": "<HID::Microntek              USB Joystick          >/button8",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "ArcadeMachine",
-                    "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "06df2929-1e61-402e-a729-d9d15cea67aa",
-                    "path": "<Joystick>/trigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "ArcadeMachine",
-                    "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b42bb3c2-252d-4dc2-a92f-f2b57a932dd4",
-                    "path": "<HID::Microntek              USB Joystick          >/button2",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "ArcadeMachine",
-                    "action": "Join",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -305,11 +253,6 @@
                     "isOR": false
                 }
             ]
-        },
-        {
-            "name": "ArcadeMachine",
-            "bindingGroup": "ArcadeMachine",
-            "devices": []
         }
     ]
 }

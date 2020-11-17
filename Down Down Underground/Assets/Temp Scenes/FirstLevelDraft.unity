@@ -8075,8 +8075,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 36
@@ -9426,13 +9424,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.InputSystem.PlayerInputManager+PlayerJoinedEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_PlayerLeftEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInputManager+PlayerLeftEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_JoinAction:
     m_UseReference: 0
     m_Action:
@@ -9585,8 +9579,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 36
@@ -11756,8 +11748,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 80
@@ -15028,29 +15018,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5342971558739868252, guid: 422ec55dc06d62a499eee36b41e6c65b,
         type: 3}
-      propertyPath: fireAction.m_SingletonActionBindings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5342971558739868252, guid: 422ec55dc06d62a499eee36b41e6c65b,
-        type: 3}
       propertyPath: scoring
       value: 
       objectReference: {fileID: 1948069695}
-    - target: {fileID: 5342971558739868252, guid: 422ec55dc06d62a499eee36b41e6c65b,
-        type: 3}
-      propertyPath: fireAction.m_SingletonActionBindings.Array.data[0].m_Id
-      value: f4f79eee-5afe-4537-8769-f027041503c1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5342971558739868252, guid: 422ec55dc06d62a499eee36b41e6c65b,
-        type: 3}
-      propertyPath: fireAction.m_SingletonActionBindings.Array.data[0].m_Action
-      value: Fire
-      objectReference: {fileID: 0}
-    - target: {fileID: 5342971558739868252, guid: 422ec55dc06d62a499eee36b41e6c65b,
-        type: 3}
-      propertyPath: fireAction.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <HID::Microntek              USB Joystick          >/button8
-      objectReference: {fileID: 0}
     - target: {fileID: 3351695701266903977, guid: 422ec55dc06d62a499eee36b41e6c65b,
         type: 3}
       propertyPath: scanPath
@@ -15142,29 +15112,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2993196226550089026, guid: 372490b4991b6734ba15367bc50f9c28,
         type: 3}
-      propertyPath: fireAction.m_SingletonActionBindings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2993196226550089026, guid: 372490b4991b6734ba15367bc50f9c28,
-        type: 3}
       propertyPath: scoring
       value: 
       objectReference: {fileID: 1948069695}
-    - target: {fileID: 2993196226550089026, guid: 372490b4991b6734ba15367bc50f9c28,
-        type: 3}
-      propertyPath: fireAction.m_SingletonActionBindings.Array.data[0].m_Id
-      value: fa43fc04-9a1f-414a-8200-2f4a5fb2557a
-      objectReference: {fileID: 0}
-    - target: {fileID: 2993196226550089026, guid: 372490b4991b6734ba15367bc50f9c28,
-        type: 3}
-      propertyPath: fireAction.m_SingletonActionBindings.Array.data[0].m_Action
-      value: Fire
-      objectReference: {fileID: 0}
-    - target: {fileID: 2993196226550089026, guid: 372490b4991b6734ba15367bc50f9c28,
-        type: 3}
-      propertyPath: fireAction.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <HID::Microntek              USB Joystick          >/button8
-      objectReference: {fileID: 0}
     - target: {fileID: 5560935314036165815, guid: 372490b4991b6734ba15367bc50f9c28,
         type: 3}
       propertyPath: scanPath
@@ -15247,11 +15197,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1165287643924036487, guid: 3107c6c8faf375243bb60d842b4f08c7,
         type: 3}
-      propertyPath: fireAction.m_SingletonActionBindings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1165287643924036487, guid: 3107c6c8faf375243bb60d842b4f08c7,
-        type: 3}
       propertyPath: scoring
       value: 
       objectReference: {fileID: 1948069695}
@@ -15264,21 +15209,6 @@ PrefabInstance:
         type: 3}
       propertyPath: fireAction.m_Name
       value: Fire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1165287643924036487, guid: 3107c6c8faf375243bb60d842b4f08c7,
-        type: 3}
-      propertyPath: fireAction.m_SingletonActionBindings.Array.data[0].m_Id
-      value: ef12946c-c2b5-432b-b16d-0a97d5d3ed6d
-      objectReference: {fileID: 0}
-    - target: {fileID: 1165287643924036487, guid: 3107c6c8faf375243bb60d842b4f08c7,
-        type: 3}
-      propertyPath: fireAction.m_SingletonActionBindings.Array.data[0].m_Action
-      value: Fire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1165287643924036487, guid: 3107c6c8faf375243bb60d842b4f08c7,
-        type: 3}
-      propertyPath: fireAction.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <HID::Microntek              USB Joystick          >/button8
       objectReference: {fileID: 0}
     - target: {fileID: 8398790922187158130, guid: 3107c6c8faf375243bb60d842b4f08c7,
         type: 3}
@@ -15364,11 +15294,6 @@ PrefabInstance:
       propertyPath: scoring
       value: 
       objectReference: {fileID: 1948069695}
-    - target: {fileID: 295553796258797588, guid: 455adfbfef451e747bd250c784dc2169,
-        type: 3}
-      propertyPath: fireAction.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <HID::Microntek              USB Joystick          >/button8
-      objectReference: {fileID: 0}
     - target: {fileID: 6971455352286335457, guid: 455adfbfef451e747bd250c784dc2169,
         type: 3}
       propertyPath: scanPath
