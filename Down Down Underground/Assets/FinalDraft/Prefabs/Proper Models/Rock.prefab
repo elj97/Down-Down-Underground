@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 198966573635092932}
   m_Layer: 15
   m_Name: Rock
-  m_TagString: Untagged
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,3 +184,4 @@ MonoBehaviour:
   deathTime: 1
   fallSpeed: 1
   fallStartTime: 1
+  scanPath: {fileID: 0}

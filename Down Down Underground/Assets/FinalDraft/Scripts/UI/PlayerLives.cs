@@ -20,7 +20,14 @@ public class PlayerLives : MonoBehaviour
         else if (life < 3)
         {
             Destroy(hearts[2].gameObject);
-            print("you are a loser");
+        }
+        else if (life < 4)
+        {
+            Destroy(hearts[3].gameObject);
+        }
+        else if (life < 5)
+        {
+            Destroy(hearts[4].gameObject);
         }
     }
 }

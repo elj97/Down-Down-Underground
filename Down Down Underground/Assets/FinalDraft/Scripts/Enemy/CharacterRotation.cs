@@ -22,14 +22,14 @@ public class CharacterRotation : MonoBehaviour
         //Up
         if (MathExtension.IsBetweenRange(parentTransform.rotation.eulerAngles.x, 225, 315))
         {
-            print("up");
+            //print("up");
             //this.gameObject.transform.rotation = Quaternion.Euler(270f, 0f, 0f);
         }
 
         //Down
         if (MathExtension.IsBetweenRange(parentTransform.rotation.eulerAngles.x, 45, 135))
         {
-            print("down");
+            //print("down");
             //this.gameObject.transform.rotation = Quaternion.Euler(90f, 180f, 0f);
         }
 
@@ -39,13 +39,13 @@ public class CharacterRotation : MonoBehaviour
             //Right
             if (MathExtension.IsBetweenRange(parentTransform.rotation.eulerAngles.y, 45, 135))
             {
-                print("right");
+                //print("right");
                 //this.gameObject.transform.rotation = Quaternion.Euler(0f, 90f, 270f);
             }
             //Left
             if (MathExtension.IsBetweenRange(parentTransform.rotation.eulerAngles.y, 225, 315))
             {
-                print("left");
+                //print("left");
                 //this.gameObject.transform.rotation = Quaternion.Euler(0f, 90f, 270f);
             }
 

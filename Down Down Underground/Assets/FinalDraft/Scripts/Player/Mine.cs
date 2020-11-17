@@ -9,6 +9,7 @@ public class Mine : MonoBehaviour
     public float miningTime = 0f; //The timer for mining blocks
     bool mined = false;
     public GameObject targetTile;
+    public bool diggingRock = false; //set private once done testing
 
     public ScanPath scanPath;
 
@@ -35,22 +36,32 @@ public class Mine : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         //print("Enter trigger");
-        if (other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Rock"))
         {
-            if (other.gameObject != targetTile)
-            {
-                miningTime = miningTimeDur;
-                targetTile = other.gameObject;
-            }
-
-            if (mined == true)
-            {
-                Destroy(other.gameObject);
-                targetTile = null;
-                scanPath.InitiateCoroutine();
-            }
+            diggingRock = true;
+        }
+        else
+        {
+            diggingRock = false;
         }
 
-       
+        if (diggingRock == false)
+        {
+            if (other.gameObject.CompareTag("Ground"))
+            {
+                if (other.gameObject != targetTile)
+                {
+                    miningTime = miningTimeDur;
+                    targetTile = other.gameObject;
+                }
+
+                if (mined == true)
+                {
+                    Destroy(other.gameObject);
+                    targetTile = null;
+                    scanPath.InitiateCoroutine();
+                }
+            }
+        }
     }
 }

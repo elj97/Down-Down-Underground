@@ -150,9 +150,7 @@ GameObject:
   - component: {fileID: 5560935314042577501}
   - component: {fileID: 4735317544313601480}
   - component: {fileID: 5560935313836416358}
-  - component: {fileID: 5560935314042577496}
   - component: {fileID: 2993196226550089026}
-  - component: {fileID: 5033449369386132565}
   - component: {fileID: 9206208493802543986}
   m_Layer: 14
   m_Name: GreenPlayer
@@ -169,7 +167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5560935314042577495}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6, y: 12, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8979009779508357792}
@@ -188,8 +186,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.8, z: 1}
-  m_Center: {x: 0.15, y: 0, z: 0}
+  m_Size: {x: 0.7, y: 0.6, z: 0.5}
+  m_Center: {x: 0, y: 0.06, z: -0.25}
 --- !u!54 &5560935313836416358
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -206,23 +204,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &5560935314042577496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5560935314042577495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 257b4b015514d464e8b01b55078d4fde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hearts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  life: 3
 --- !u!114 &2993196226550089026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,76 +217,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  movementInputX: 0
+  movementInputY: 0
   mineCircle: {fileID: 5560935314036165814}
   mineCircleOffSet: 1.5
+  playerSelect: 4
   modelTransform: {fileID: 8979009779508357792}
-  fireAction:
-    m_Name: Fire
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 2a14d8bd-a7db-446b-8304-bff82164ca89
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
   scoring: {fileID: 0}
---- !u!114 &5033449369386132565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5560935314042577495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 7512a832ce3a7184dbeb17ee879933d1,
-    type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2993196226550089026}
-        m_MethodName: OnMove
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: ead0df38-3339-4cb2-8f6b-6064f26108dd
-    m_ActionName: Player/Move[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: df9f4e52-0e5b-4afd-9981-109a11755692
-    m_ActionName: Player/Shoot[/Keyboard/space,/XInputControllerWindows/buttonSouth]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: a2962013-2c9d-4197-97af-d79eec2a2516
-    m_ActionName: YellowPlayer/Shoot[/Keyboard/space,/XInputControllerWindows/buttonSouth,/XInputControllerWindows/buttonSouth,/XInputControllerWindows/buttonSouth,/XInputControllerWindows/buttonSouth]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0f3cfa60-bb54-4560-a78a-bc914d34e795
-    m_ActionName: YellowPlayer/Move[/XInputControllerWindows/leftStick,/XInputControllerWindows/leftStick,/XInputControllerWindows/leftStick,/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Gamepad
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  respawnScript: {fileID: 0}
+  playerLivesScript: {fileID: 0}
 --- !u!114 &9206208493802543986
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,6 +13,8 @@ TagManager:
   - Fruit
   - PlayerProj
   - Projectile
+  - Manager
+  - Rock
   layers:
   - Default
   - TransparentFX
