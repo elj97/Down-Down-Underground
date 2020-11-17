@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
-    public void Scene1()
+    /*public void Scene1()
     {
         SceneManager.LoadScene("Player 1");
     }
@@ -22,19 +22,24 @@ public class SceneChanger : MonoBehaviour
     public void Scene4()
     {
         SceneManager.LoadScene("Player 4");
+    }*/
+
+    public void Scene1()
+    {
+        SceneManager.LoadScene("Level1");
     }
 
-    public void Scene5()
+    public void Scene2()
     {
         SceneManager.LoadScene("Controls");
     }
 
-    public void Scene6()
+    public void Scene3()
     {
         SceneManager.LoadScene("Main Menu");
     }
 
-    public void Scene7()
+    public void Scene4()
     {
         SceneManager.LoadScene("Credits");
     }
