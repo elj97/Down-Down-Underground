@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Elijahs Laser Branch/ControllerTestNewInput.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/FinalDraft/Imported Resources/Input Manager/ControllerTestNewInput.inputactions'
 
 using System;
 using System.Collections;
